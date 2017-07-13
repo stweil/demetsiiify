@@ -12,7 +12,7 @@
 
 tinymce.PluginManager.add('emoticons', function(editor, url) {
 	var emoticons = [
-		["cool", "cry", "embarassed", "foot-in-mouth"],
+		["cool", "cry", "embarrassed", "foot-in-mouth"],
 		["frown", "innocent", "kiss", "laughing"],
 		["money-mouth", "sealed", "smile", "surprised"],
 		["tongue-out", "undecided", "wink", "yell"]
