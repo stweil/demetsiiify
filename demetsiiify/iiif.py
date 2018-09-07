@@ -174,8 +174,7 @@ def _make_empty_manifest(ident, label):
         current_app.config['PREFERRED_URL_SCHEME'],
         current_app.config['SERVER_NAME']))
     manifest_factory.set_iiif_image_info('2.0', 0)
-    manifest = manifest_factory.manifest(ident=manifest_ident,
-                                         label=make_label(mets_doc.metadata))
+    manifest = manifest_factory.manifest(ident=manifest_ident, label=label)
     return manifest
 
 
