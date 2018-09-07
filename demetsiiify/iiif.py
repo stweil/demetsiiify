@@ -211,6 +211,9 @@ def make_manifest(ident, mets_doc, physical_map, thumbs_map):
     :returns:               Generated IIIF manifest
     :rtype:                 dict
     """
+    manifest_ident = '{}://{}/iiif/{}/manifest'.format(
+        current_app.config['PREFERRED_URL_SCHEME'],
+        current_app.config['SERVER_NAME'], ident)
     manifest = _make_empty_manifest(ident=manifest_ident,
                                     label=make_label(mets_doc.metadata))
     _fill_manifest_metadata(manifest, mets_doc.metadata)
