@@ -213,7 +213,7 @@ def make_manifest(ident, mets_doc, physical_map, thumbs_map):
     """
     manifest = _make_empty_manifest(ident=manifest_ident,
                                     label=make_label(mets_doc.metadata))
-    _fill_manifest_metadata(manifest)
+    _fill_manifest_metadata(manifest, mets_doc.metadata)
 
     phys_to_canvas = {}
     seq = manifest.sequence(ident='default')
