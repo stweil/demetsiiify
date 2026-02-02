@@ -31,6 +31,8 @@ services:
       - .:/code
     environment:
       DEBUG: 1
+      PREFERRED_URL_SCHEME: 'https'
+      SERVER_NAME: 'ub-blade-01.bib.uni-mannheim.de'
     links:
       - postgres
       - redis
