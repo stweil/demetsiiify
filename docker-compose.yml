@@ -1,10 +1,13 @@
-version: '2'
 services:
   postgres:
     image: postgres:alpine
+    networks:
+      - app_net
 
   redis:
     image: redis:alpine
+    networks:
+      - app_net
 
   worker:
     build:
@@ -12,14 +15,13 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/code
-    links:
-      - postgres
-      - redis
     environment:
       SMTP_USER:
       SMTP_SERVER:
       SMTP_PASSWORD:
     command: 'pipenv run worker'
+    networks:
+      - app_net
 
   webapp:
     build:
@@ -33,7 +35,10 @@ services:
       DEBUG: 1
       PREFERRED_URL_SCHEME: 'https'
       SERVER_NAME: 'ub-blade-01.bib.uni-mannheim.de'
-    links:
-      - postgres
-      - redis
     command: 'pipenv run webapp'
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    driver: bridge
